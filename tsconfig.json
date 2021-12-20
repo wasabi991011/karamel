@@ -1,28 +1,26 @@
 {
-	"compilerOptions": {
-		"downlevelIteration": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"target": "es2015",
-
-		"baseUrl": "./src",
-		"outDir": "./dist",
-
-		"jsx": "react",
-		"lib": ["dom", "es2017"],
-
-		"strict": true,
-		"sourceMap": true,
-
-		"forceConsistentCasingInFileNames": true,
-		"noFallthroughCasesInSwitch": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-
-		"allowSyntheticDefaultImports": true,
-		"experimentalDecorators": true,
-		"strictFunctionTypes": false
-	},
-
-	"exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
 }

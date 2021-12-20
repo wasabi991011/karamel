@@ -1,9 +1,0 @@
-{
-	"loadMore": "load more comments",
-	"loadMore_count": "{{count}} reply",
-	"loadMore_count_plural": "{{count}} replies",
-	"loadMore_loading": "loading...",
-	"score": "{{score}} point",
-	"score_hidden": "score hidden",
-	"score_plural": "{{score}} points"
-}

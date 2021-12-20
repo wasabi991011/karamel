@@ -1,51 +1,21 @@
-import { createMemoryHistory } from "history";
-import React from "react";
-import { render } from "react-dom";
-import { I18nextProvider } from "react-i18next";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
+import * as serviceWorker from './serviceWorker';
 
-import i18n from "common/i18n";
-import { getCurrentLayer } from "layer";
-import Router from "router";
-import configureStore from "store/configureStore";
-import "styles/global.scss";
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const history = createMemoryHistory();
-const store = configureStore(history);
-const layer = getCurrentLayer();
-
-const renderRoot = (mountElement: HTMLElement) => {
-	render(
-		<I18nextProvider i18n={i18n}>
-			<Provider store={store}>
-				<Router history={history} />
-			</Provider>
-		</I18nextProvider>,
-		mountElement
-	);
-};
-
-const insertMountElement = (before: Element) => {
-	const element = document.createElement("div");
-	element.id = "tube-mount";
-	before.parentNode!.insertBefore(element, before);
-
-	return element;
-};
-
-const observer = new MutationObserver(() => {
-	if (document.querySelector(layer.getWatchQuery())) {
-		observer.disconnect();
-
-		const mount = insertMountElement(
-			document.querySelector(layer.getCommentsContainerQuery())!
-		);
-		renderRoot(mount);
-	}
-});
-
-if (location.protocol === "chrome-extension:") {
-	renderRoot(document.getElementById("tube-mount")!);
-} else {
-	observer.observe(document.body, { childList: true, subtree: true });
-}
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
