@@ -1,6 +1,6 @@
 {
-  "name": "karamel-modern",
-  "version": "0.1.0",
+  "name": "karamel",
+  "version": "1.5.1",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
@@ -19,10 +19,9 @@
     "typescript": "~4.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "webpack --progress --config tools/webpack.prod.js",
+    "start": "webpack --watch --progress --config tools/webpack.dev.js",
+    "test": "exit 0"
   },
   "eslintConfig": {
     "extends": "react-app"
